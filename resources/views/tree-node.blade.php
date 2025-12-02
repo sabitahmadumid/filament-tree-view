@@ -60,7 +60,7 @@
                     type="button"
                     data-drag-handle
                     class="relative filament-tree-drag-handle flex-shrink-0 text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-400 transition-opacity"
-                    title="Drag to reorder"
+                    title="{{ __('filament-tree-view::tree.node.drag_to_reorder') }}"
                 >
                     <span class="absolute -inset-2"></span>
                     <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
@@ -74,7 +74,7 @@
                         <button
                             type="button"
                             class="relative tree-toggle-btn text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-400 transition-colors"
-                            title="Toggle"
+                            title="{{ __('filament-tree-view::tree.node.toggle') }}"
                             data-record-id="{{ $record->id }}"
                             onclick="window.toggleTreeNode(this, '{{ $record->id }}')"
                         >

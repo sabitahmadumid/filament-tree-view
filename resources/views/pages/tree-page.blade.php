@@ -61,7 +61,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
                         </x-slot>
-                        Expand
+                        {{ __('filament-tree-view::tree.actions.expand') }}
                     </x-filament::button>
                     <x-filament::button
                         type="button"
@@ -75,7 +75,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14" />
                             </svg>
                         </x-slot>
-                        Collapse
+                        {{ __('filament-tree-view::tree.actions.collapse') }}
                     </x-filament::button>
                 </div>
                 @else
@@ -95,7 +95,7 @@
                             <svg class="h-4 w-4 animate-pulse" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
                             </svg>
-                            <span class="text-sm">Unsaved changes</span>
+                            <span class="text-sm">{{ __('filament-tree-view::tree.unsaved_changes') }}</span>
                         </div>
 
                         {{-- Cancel Button --}}
@@ -111,7 +111,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                             </x-slot>
-                            Cancel
+                            {{ __('filament-tree-view::tree.actions.cancel') }}
                         </x-filament::button>
 
                         {{-- Save Button --}}
@@ -127,7 +127,7 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                                 </svg>
                             </x-slot>
-                            Save Changes
+                            {{ __('filament-tree-view::tree.actions.save') }}
                         </x-filament::button>
                     @endif
                 </div>
@@ -153,7 +153,7 @@
         @else
             <div class="rounded-xl bg-white px-6 py-12 shadow-sm ring-1 ring-gray-950/5 dark:bg-gray-900 dark:ring-white/10">
                 <div class="mx-auto grid max-w-lg justify-items-center text-center">
-                    <p class="text-sm text-gray-500 dark:text-gray-400">No records found.</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-400">{{ __('filament-tree-view::tree.no_records') }}</p>
                 </div>
             </div>
         @endif
