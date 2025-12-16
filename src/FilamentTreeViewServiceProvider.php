@@ -30,5 +30,4 @@ class FilamentTreeViewServiceProvider extends PackageServiceProvider
         ], package: 'openplain/filament-tree-view');
 
     }
-
 }

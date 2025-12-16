@@ -172,6 +172,49 @@ That's it! You now have a fully functional drag-and-drop tree view with manual s
 
 ---
 
+## Relation Pages
+
+If you're using Filament's relation pages (extending `ManageRelatedRecords`), you can use `TreeRelationPage` instead of `TreePage`. This is ideal when you want to manage a hierarchical relationship separately from editing or viewing the owner record.
+
+### When to Use TreeRelationPage
+
+- You're using resource sub-navigation and want to switch between View/Edit pages and the relation page
+- You want to keep relationship management separate from the owner record
+- The tree configuration should come from the related resource, not the parent resource
+
+### Example: Managing Category Children
+
+```php
+<?php
+
+namespace App\Filament\Resources\CategoryResource\Pages;
+
+use App\Filament\Resources\CategoryResource;
+use Openplain\FilamentTreeView\Resources\Pages\TreeRelationPage;
+
+class ManageCategoryChildren extends TreeRelationPage
+{
+    protected static string $resource = CategoryResource::class;
+    protected static string $relationship = 'children';
+    protected static ?string $relatedResource = CategoryResource::class;
+}
+```
+
+Register the page in your resource:
+
+```php
+public static function getPages(): array
+{
+    return [
+        'index' => Pages\ListCategories::route('/'),
+        'create' => Pages\CreateCategory::route('/create'),
+        'view' => Pages\ViewCategory::route('/{record}'),
+        'edit' => Pages\EditCategory::route('/{record}/edit'),
+        'children' => Pages\ManageCategoryChildren::route('/{record}/children'),
+    ];
+}
+```
+
 ## Advanced Configuration
 
 Need more control? The tree view offers powerful customization options. **All configuration is optional** - only add what you need.

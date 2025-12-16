@@ -5,6 +5,8 @@ namespace Openplain\FilamentTreeView\Tests;
 use BladeUI\Heroicons\BladeHeroiconsServiceProvider;
 use BladeUI\Icons\BladeIconsServiceProvider;
 use Filament\FilamentServiceProvider;
+use Filament\Panel;
+use Filament\PanelProvider;
 use Filament\Support\SupportServiceProvider;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -33,6 +35,7 @@ class TestCase extends Orchestra
             FilamentServiceProvider::class,
             SupportServiceProvider::class,
             FilamentTreeViewServiceProvider::class,
+            TestPanelProvider::class,
         ];
     }
 
@@ -59,5 +62,16 @@ class TestCase extends Orchestra
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
+    }
+}
+
+class TestPanelProvider extends PanelProvider
+{
+    public function panel(Panel $panel): Panel
+    {
+        return $panel
+            ->id('test')
+            ->default()
+            ->path('admin');
     }
 }
